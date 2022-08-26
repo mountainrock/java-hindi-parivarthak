@@ -1,0 +1,5 @@
+
+TODO:
+1. Remove single character and double character replacements or sort them in reverse
+2. Bulk conversion of zip file 
+3. API in json for conversion
