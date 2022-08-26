@@ -9,24 +9,30 @@
 </head>
 <body>
 <?php
+session_start();
+
 $input = isset($_POST['input']) ? $_POST['input']: null;
 $templateName = isset($_POST['templateName']) ? $_POST['templateName']: "hellow-world.txt";;
 $dir    = './examples';
 
 $templateFiles = array_diff(scandir($dir), array('..', '.'));
 if($input == null){
-    $templateName="hello-world.txt"; //default      
+    $templateName="HelloWorld.java"; //default      
 } 
 if($templateName != 'textInput'){
     $input =  file_get_contents("$dir/$templateName");
 }
  
+if(isset($_SESSION["langMap"]) == false && $_SESSION["langMap"]==null){
+	$keywordFileContent = file_get_contents('hindi.json');
+    $_SESSION["langMap"] = json_decode($keywordFileContent, true);
 
+    $langFileContent = file_get_contents('hindi-full-dictionary.json');
+    $_SESSION["langFileContent"] =json_decode($langFileContent, true);
+}
 
-$keywordFileContent = file_get_contents('hindi.json');
-$langMap = json_decode($keywordFileContent, true);
-$langFileContent = file_get_contents('hindi-full-dictionary.json');
-$langMapFull = json_decode($langFileContent, true);
+$langMap = $_SESSION["langMap"];
+$langMapFull = $_SESSION["langFileContent"];
 
 //echo "$input <br/><br/>";
 $output =  str_replace(array_keys($langMap), $langMap, strtolower($input));
@@ -100,7 +106,13 @@ $output =  str_replace(array_keys($langMapFull), $langMapFull, strtolower($outpu
                                         <div class="row">
                                              <div class="form-group col-md-1"></div>
                                              <div class="form-group col-md-11">
-                                                <b> About </b>: This is a very basic java to hindi translation program written in PHP using word replacement but can be improved further by interested patriots of Bharatha. You can improve the source code by contributing for coding  <a href="https://github.com/mountainrock/java-hindi-parivarthak/" target="_blank">here on github</a> याद रखें भाषा ही हमारी पहचान है। अगर आप गुलामी से बाहर निकलना चाहते हैं तो अपनी भाषा मत खोइए 
+                                                <b> About </b>:
+                                                 This is a very basic java to hindi translation program written in PHP using word replacement but can be improved further by interested patriots of Bharatha. You can improve the source code by contributing for coding  <a href="https://github.com/mountainrock/java-hindi-parivarthak/" target="_blank">here on github</a> याद रखें भाषा ही हमारी पहचान है। अगर आप गुलामी से बाहर निकलना चाहते हैं तो अपनी भाषा मत खोइए 
+                                                 <br/>
+                                                 <br/>
+                                                 Select the example program above and click red button for conversion. Select Manual text input to add custom user input in Input text area.
+                                                 <br/>
+                                                 The dictionary used for conversion is below.
 
                                              </div>
                                         </div>
