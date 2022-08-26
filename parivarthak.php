@@ -95,6 +95,16 @@ $output =  str_replace(array_keys($langMapFull), $langMapFull, strtolower($outpu
                                                </div>
                                         </div>
                                        
+                                        
+
+                                        <div class="row">
+                                             <div class="form-group col-md-1"></div>
+                                             <div class="form-group col-md-11">
+                                                <b> About </b>: This is a very basic java to hindi translation program written in PHP using word replacement but can be improved further by interested patriots of Bharatha. You can improve the source code by contributing for coding  <a href="https://github.com/mountainrock/java-hindi-parivarthak/" target="_blank">here on github</a> याद रखें भाषा ही हमारी पहचान है। अगर आप गुलामी से बाहर निकलना चाहते हैं तो अपनी भाषा मत खोइए
+
+                                             </div>
+                                        </div>
+
                                          <div class="row">
                                                 <div class="form-group col-md-1"></div>
                                                 <div class="form-group col-md-3">
@@ -104,14 +114,6 @@ $output =  str_replace(array_keys($langMapFull), $langMapFull, strtolower($outpu
                                                <div class="form-group col-md-3">
                                                  <label class="label">Word translation </label>
                                                 <textarea class="form-control" rows="5" cols="100" name="output"><?php echo $langFileContent; ?></textarea>
-                                             </div>
-                                        </div>
-
-                                        <div class="row">
-                                             <div class="form-group col-md-1"></div>
-                                             <div class="form-group col-md-8">
-                                                <h4> Help: This is a very basic java to hindi translation program using word replacement but can be improved further by interested patriots of Bharatha.</h4>
-
                                              </div>
                                         </div>
 
